@@ -1,14 +1,14 @@
-import banner1 from "./../../../assets/images/banner/5.jpg";
-import banner2 from "./../../../assets/images/banner/2.jpg";
-import banner3 from "./../../../assets/images/banner/3.jpg";
-import banner4 from "./../../../assets/images/banner/4.jpg";
+import carousel1 from "./../../../assets/images/homeCarousel/1.jpg";
+import carousel2 from "./../../../assets/images/homeCarousel/2.jpg";
+import carousel3 from "./../../../assets/images/homeCarousel/3.jpg";
+import carousel4 from "./../../../assets/images/homeCarousel/4.jpg";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 const Banner = () => {
   return (
     <div className="carousel w-full h-[600px]">
       <div id="slide1" className="carousel-item relative w-full">
-        <img src={banner1} className="w-full rounded-lg" />
+        <img src={carousel1} className="w-full rounded-lg" />
         <div className="absolute flex items-center h-full w-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] rounded-xl">
           <div className="text-white m-24">
             <h1 className="text-6xl font-bold mb-8">
@@ -44,7 +44,7 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
-        <img src={banner2} className="w-full rounded-lg" />
+        <img src={carousel2} className="w-full rounded-lg" />
         <div className="absolute flex items-center h-full w-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] rounded-xl">
           <div className="text-white m-24">
             <h1 className="text-6xl font-bold mb-8">
@@ -80,7 +80,7 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
-        <img src={banner3} className="w-full rounded-lg" />
+        <img src={carousel3} className="w-full rounded-lg" />
         <div className="absolute flex items-center h-full w-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] rounded-xl">
           <div className="text-white m-24">
             <h1 className="text-6xl font-bold mb-8">
@@ -116,7 +116,7 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
-        <img src={banner4} className="w-full rounded-lg" />
+        <img src={carousel4} className="w-full rounded-lg" />
         <div className="absolute flex items-center h-full w-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] rounded-xl">
           <div className="text-white m-24">
             <h1 className="text-6xl font-bold mb-8">
