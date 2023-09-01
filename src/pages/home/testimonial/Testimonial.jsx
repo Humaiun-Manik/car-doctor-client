@@ -1,3 +1,4 @@
+import { Rating } from "@smastrom/react-rating";
 import client1 from "./../../../assets/images/clients/Ellipse 2 (1).svg";
 import client2 from "./../../../assets/images/clients/Ellipse 2.svg";
 import { FaQuoteRight } from "react-icons/fa6";
@@ -28,13 +29,7 @@ const Testimonial = () => {
             alteration in some form, by injected humour, or randomised words which do not look even slightly
             believable.
           </p>
-          <div className="rating">
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-          </div>
+          <Rating style={{ maxWidth: 150 }} value={5} readOnly />
         </div>
         <div className="p-5">
           <div className="flex">
@@ -50,13 +45,7 @@ const Testimonial = () => {
             alteration in some form, by injected humour, or randomised words which do not look even slightly
             believable.
           </p>
-          <div className="rating">
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
-          </div>
+          <Rating style={{ maxWidth: 150 }} value={5} readOnly />
         </div>
       </div>
     </div>

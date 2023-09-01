@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "./../../../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider";
+import { toast } from "react-toastify";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
   const navItems = (
     <>
       <li>
@@ -21,6 +26,14 @@ const Header = () => {
       </li>
     </>
   );
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success("Sign-out successful.");
+      })
+      .catch();
+  };
 
   return (
     <div className="navbar bg-base-100 py-5">
@@ -52,6 +65,20 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1 font-semibold text-lg text-[#444]">{navItems}</ul>
       </div>
       <div className="navbar-end">
+        {!user?.email ? (
+          <Link to={"/login"}>
+            <button className="btn btn-outline btn-success mr-3 font-semibold text-lg capitalize">
+              Login
+            </button>
+          </Link>
+        ) : (
+          <button
+            onClick={handleLogout}
+            className="btn btn-outline bg-[#FF3811] hover:bg-[#FFF] hover:border-[#FF3811] duration-500 capitalize text-[#FFF] hover:text-[#FF3811] font-semibold text-lg mr-3"
+          >
+            Log Out
+          </button>
+        )}
         <button className="btn btn-outline hover:bg-[#FF3811] hover:border-[#FF3811] duration-500 capitalize text-[#FF3811] font-semibold text-lg">
           Appointment
         </button>
