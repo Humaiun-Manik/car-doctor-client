@@ -1,7 +1,6 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 const ServiceCard = ({ service }) => {
-  console.log(service);
   return (
     <div className="card w-full border">
       <figure className="px-6 pt-6">
