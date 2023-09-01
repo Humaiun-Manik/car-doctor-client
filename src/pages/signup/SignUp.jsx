@@ -7,6 +7,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const [type, setType] = useState("password");
@@ -43,10 +44,18 @@ const SignUp = () => {
         toast.success("User has been created successfully.", {
           icon: "🚀",
         });
+        updateUserData(user, name);
       })
       .catch((error) => {
         setError(error.message);
       });
+  };
+
+  // update user info
+  const updateUserData = (user, name) => {
+    updateProfile(user, { displayName: name })
+      .then(() => {})
+      .catch((error) => setError(error.message));
   };
 
   return (

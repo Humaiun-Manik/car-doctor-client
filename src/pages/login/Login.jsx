@@ -3,15 +3,16 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import loginImg from "./../../assets/images/login/login.svg";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const [type, setType] = useState("password");
-  const { login } = useContext(AuthContext);
+  const { login, resetPassword } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const inputEmail = useRef();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -31,6 +32,21 @@ const Login = () => {
       });
   };
 
+  const handleResetPassword = () => {
+    setError("");
+    const email = inputEmail.current.value;
+
+    if (!email) {
+      setError("Please enter your email address!");
+    } else {
+      resetPassword(email)
+        .then(() => {
+          toast("Password reset email sent!");
+        })
+        .catch((error) => setError(error.message));
+    }
+  };
+
   return (
     <div className="my-10">
       <div className="hero-content flex-col lg:flex-row">
@@ -45,7 +61,14 @@ const Login = () => {
                 <span className="label-text text-lg font-semibold">Email</span>
               </label>
               <label className="input-group input-group-vertical">
-                <input type="text" placeholder="Your email" name="email" className="input" required />
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  name="email"
+                  className="input"
+                  required
+                  ref={inputEmail}
+                />
               </label>
             </div>
             <div className="form-control mb-8">
@@ -66,6 +89,12 @@ const Login = () => {
                   />
                 )}
               </label>
+              <p
+                onClick={handleResetPassword}
+                className="text-end text-lg text-[#444] hover:text-[#FF3811] duration-500 font-semibold mt-4 cursor-pointer"
+              >
+                Forgot password?
+              </p>
             </div>
             <input
               className="w-full bg-[#FF3811] text-white text-xl font-semibold py-4 rounded-lg"
