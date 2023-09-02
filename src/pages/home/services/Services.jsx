@@ -1,30 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import ServiceCard from "./ServiceCard";
 import { TbCalendarTime } from "react-icons/tb";
 import { FiPhoneCall } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
+import { ServiceContext } from "../../../contexts/ServiceProvider";
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/services")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.length === 0) {
-          setLoading(true);
-        } else {
-          setLoading(false);
-          setServices(data);
-        }
-      });
-  }, []);
+  const { loading, services } = useContext(ServiceContext);
 
   return (
     <div>
       <div className="text-center">
-        <h4 className="text-xl text-[#FF3811] font-bold mb-5">About Us</h4>
+        <h4 className="text-xl text-[#FF3811] font-bold mb-5">Service</h4>
         <h1 className="text-5xl font-bold mb-5">Our Service Area</h1>
         <p className=" text-[#737373] capitalize mb-12">
           the majority have suffered alteration in some form, by injected humour, or randomised <br /> words
