@@ -11,7 +11,7 @@ import logo from "./../../assets/logo.svg";
 const ServiceDetails = () => {
   const service = useLoaderData();
   const { services } = useContext(ServiceContext);
-  const { img, description, title, facility, price } = service;
+  const { _id, img, description, title, facility, price } = service;
 
   return (
     <div>
@@ -129,9 +129,12 @@ const ServiceDetails = () => {
             <h4 className="py-4 px-8 bg-[#FF3811] w-40 -mt-7 mx-auto rounded">Get A Quote</h4>
           </div>
           <h1 className="text-[#151515] text-4xl font-bold my-5">Price ${price}</h1>
-          <button className="btn btn-block bg-[#FF3811] border border-[#FF3811] text-white hover:border hover:border-[#FF3811] hover:text-[#FF3811] text-lg font-semibold duration-300">
+          <Link
+            to={`/checkout/${_id}`}
+            className="btn btn-block bg-[#FF3811] border border-[#FF3811] text-white hover:border hover:border-[#FF3811] hover:text-[#FF3811] text-lg font-semibold duration-300"
+          >
             Proceed Checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>
