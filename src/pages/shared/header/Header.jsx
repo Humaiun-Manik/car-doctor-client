@@ -65,7 +65,7 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1 font-semibold text-lg text-[#444]">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        {!user?.email ? (
+        {!user ? (
           <Link to={"/login"}>
             <button className="btn btn-outline btn-success mr-3 font-semibold text-lg capitalize">
               Login

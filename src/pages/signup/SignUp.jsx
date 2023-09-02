@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import login from "./../../assets/images/login/login.svg";
-import { FaFacebookF } from "react-icons/fa6";
-import { FcGoogle } from "react-icons/fc";
-import { BiLogoLinkedin } from "react-icons/bi";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
+import SocialMediaLogin from "../shared/socialMediaLogin/SocialMediaLogin";
 
 const SignUp = () => {
   const [type, setType] = useState("password");
@@ -110,11 +108,7 @@ const SignUp = () => {
           </form>
           <p className="text-red-500 mt-4">{error}</p>
           <p className="text-lg text-[#444] font-medium my-8 text-center">Or Sign Up with</p>
-          <div className="flex justify-center mb-12">
-            <FcGoogle className="text-2xl cursor-pointer" />
-            <FaFacebookF className="text-2xl text-[#3B5998] mx-12 cursor-pointer" />
-            <BiLogoLinkedin className="text-2xl text-[#0A66C2] cursor-pointer" />
-          </div>
+          <SocialMediaLogin />
           <p className="text-lg text-[#737373] text-center">
             Already have an account?{" "}
             <Link className="text-[#FF3811] font-semibold" to={"/login"}>
