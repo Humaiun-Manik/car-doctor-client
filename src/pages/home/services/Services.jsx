@@ -6,11 +6,19 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
-      .then((data) => setServices(data));
+      .then((data) => {
+        if (data.length === 0) {
+          setLoading(true);
+        } else {
+          setLoading(false);
+          setServices(data);
+        }
+      });
   }, []);
 
   return (
@@ -23,11 +31,19 @@ const Services = () => {
           which do not look even slightly believable.
         </p>
       </div>
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <ServiceCard key={service._id} service={service}></ServiceCard>
-        ))}
-      </div>
+
+      {loading ? (
+        <div className="text-center">
+          <span className="loading loading-spinner loading-lg text-[#FF3811]"></span>
+        </div>
+      ) : (
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <ServiceCard key={service._id} service={service}></ServiceCard>
+          ))}
+        </div>
+      )}
+
       <div className="flex justify-center">
         <button className="btn btn-outline mt-12 text-[#FF3811] text-lg font-semibold capitalize">
           More Services
