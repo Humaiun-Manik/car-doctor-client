@@ -16,12 +16,12 @@ const ServiceDetails = () => {
   return (
     <div>
       <SubBanner banner={banner} pageName={"Service Details"} />
-      <div className="grid grid-cols-3 gap-6 my-32">
+      <div className="grid md:grid-cols-3 gap-6 my-32 px-2">
         <div className="col-span-2">
           <img className="w-full rounded-lg" src={img} alt="" />
           <h1 className="mt-12 mb-8 text-[#151515] text-4xl font-bold">{title}</h1>
           <p className="text-[#737373] capitalize leading-8 text-justify">{description}</p>
-          <div className="grid grid-cols-2 gap-6 my-8">
+          <div className="grid md:grid-cols-2 gap-6 my-8">
             {facility.map((singleFacility) => (
               <div
                 className="mb-6 p-10 bg-[#F3F3F3] border-t-2 border-[#FF3811] rounded-lg"
@@ -39,7 +39,7 @@ const ServiceDetails = () => {
             believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there is not
             anything embarrassing hidden in the middle of text
           </p>
-          <div className="grid grid-cols-3 gap-6 my-8">
+          <div className="grid md:grid-cols-3 gap-6 my-8">
             <div className="text-center border rounded-lg py-10 px-9">
               <div className="mx-auto w-20 h-20 bg-[#ff39111e] text-white flex justify-center items-center rounded-full">
                 <h2 className="text-xl font-bold bg-[#FF3811] w-14 h-14 rounded-full flex justify-center items-center">
@@ -70,12 +70,12 @@ const ServiceDetails = () => {
           </div>
           <div className="relative">
             <img className="w-full rounded-xl" src={img} alt="" />
-            <div className="absolute top-1/3 left-1/3 ms-16">
+            <div className="absolute top-1/3 left-1/3 md:ms-16">
               <FiPlayCircle className="text-9xl text-[#FF3811]" />
             </div>
           </div>
         </div>
-        <div className="">
+        <div>
           <div className="bg-[#F3F3F3] text-[#151515] p-10 rounded">
             <h3 className=" text-2xl font-bold mb-5">Services</h3>
             {services.map((service) => (
