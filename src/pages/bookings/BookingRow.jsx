@@ -1,9 +1,13 @@
-const BookingRow = ({ booking }) => {
-  const { img, service, price, date } = booking;
+const BookingRow = ({ booking, handleDeleteBooking }) => {
+  const { _id, img, service, price, date } = booking;
+
   return (
     <tr className="text-[#444] text-base md:text-xl font-semibold">
       <th>
-        <button className="btn btn-xs md:btn-lg btn-circle btn-outline">
+        <button
+          onClick={() => handleDeleteBooking(_id)}
+          className="btn btn-xs md:btn-lg btn-circle btn-outline"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

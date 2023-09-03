@@ -3,12 +3,9 @@ import logo from "./../../../assets/logo.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { toast } from "react-toastify";
-import { HiOutlineShoppingBag } from "react-icons/hi";
-import { BookingContext } from "../../../contexts/BookingProvider";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  const bookings = useContext(BookingContext);
 
   const navItems = (
     <>
@@ -21,9 +18,11 @@ const Header = () => {
       <li>
         <Link to={"/services"}>Services</Link>
       </li>
-      <li>
-        <Link to={"/blog"}>Blog</Link>
-      </li>
+      {user && (
+        <li>
+          <Link to={"/bookings"}>My Bookings</Link>
+        </li>
+      )}
     </>
   );
 
@@ -72,24 +71,16 @@ const Header = () => {
             </button>
           </Link>
         ) : (
-          <>
-            <Link to={"/bookings"}>
-              <div className="indicator me-8 flex">
-                <span className="indicator-item badge bg-[#FF3811] text-white">{bookings.length}</span>
-                <HiOutlineShoppingBag className="text-4xl" />
-              </div>
-            </Link>
-            <button
-              onClick={handleLogout}
-              className="btn btn-outline bg-[#FF3811] hover:bg-[#FFF] hover:border-[#FF3811] duration-500 capitalize text-[#FFF] hover:text-[#FF3811] font-semibold text-lg mr-3"
-            >
-              Log Out
-            </button>
-          </>
+          <button
+            onClick={handleLogout}
+            className="btn btn-outline bg-[#FF3811] hover:bg-[#FFF] hover:border-[#FF3811] duration-500 capitalize text-[#FFF] hover:text-[#FF3811] font-semibold text-lg mr-3"
+          >
+            Log Out
+          </button>
         )}
-        {/* <button className="btn btn-outline hover:bg-[#FF3811] hover:border-[#FF3811] duration-500 capitalize text-[#FF3811] font-semibold text-lg">
+        <button className="btn btn-outline hover:bg-[#FF3811] hover:border-[#FF3811] duration-500 capitalize text-[#FF3811] font-semibold text-lg">
           Appointment
-        </button> */}
+        </button>
       </div>
     </div>
   );
