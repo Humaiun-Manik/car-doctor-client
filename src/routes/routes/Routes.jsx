@@ -8,6 +8,7 @@ import NotFound from "../../pages/notFound/NotFound";
 import CheckOut from "../../pages/checkOut/checkOut";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import Bookings from "../../pages/bookings/Bookings";
+import AllService from "../../pages/allService/AllService";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/services",
+        element: <AllService />,
       },
       {
         path: "service-details/:id",

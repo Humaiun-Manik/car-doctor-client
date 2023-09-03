@@ -1,7 +1,7 @@
 import About from "./about/About";
 import Banner from "./banner/Banner";
 import Features from "./features/Features";
-import Services from "./services/Services";
+import Services from "../shared/services/Services";
 import Team from "./team/Team";
 import Testimonial from "./testimonial/Testimonial";
 
