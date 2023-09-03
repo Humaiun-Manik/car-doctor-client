@@ -1,19 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import SubBanner from "../shared/subBanner/SubBanner";
 import banner from "./../../assets/images/banner/3.jpg";
-import { AuthContext } from "../../contexts/AuthProvider";
 import BookingRow from "./BookingRow";
+import { BookingContext } from "../../contexts/BookingProvider";
 
 const Bookings = () => {
-  const { user } = useContext(AuthContext);
-  const [bookings, setBookings] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
-  }, [user.email]);
-
+  const bookings = useContext(BookingContext);
+  console.log(bookings);
   return (
     <>
       <SubBanner banner={banner} title={"Cart Details"}></SubBanner>

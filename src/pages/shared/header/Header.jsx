@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
 import logo from "./../../../assets/logo.svg";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { toast } from "react-toastify";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { BookingContext } from "../../../contexts/BookingProvider";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
-  const [bookings, setBookings] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
-  }, [user.email]);
+  const bookings = useContext(BookingContext);
 
   const navItems = (
     <>
