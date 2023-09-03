@@ -15,7 +15,7 @@ const ServiceDetails = () => {
 
   return (
     <div>
-      <SubBanner banner={banner} pageName={"Service Details"} />
+      <SubBanner banner={banner} title={"Service Details"} />
       <div className="grid md:grid-cols-3 gap-6 my-32 px-2">
         <div className="col-span-2">
           <img className="w-full rounded-lg" src={img} alt="" />

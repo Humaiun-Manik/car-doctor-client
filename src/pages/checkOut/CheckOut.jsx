@@ -15,15 +15,14 @@ const CheckOut = () => {
     const form = e.target;
     const name = form.name.value;
     const phone = form.phone.value;
-    const email = form.email.value;
     const date = form.date.value;
     const message = form.message.value;
     const bookingsInfo = {
       service_id: _id,
       customerName: name,
       service: title,
+      email: user.email,
       phone,
-      email,
       date,
       message,
       img,
@@ -56,7 +55,7 @@ const CheckOut = () => {
 
   return (
     <div>
-      <SubBanner banner={banner} pageName={"Check Out"}></SubBanner>
+      <SubBanner banner={banner} title={"Check Out"}></SubBanner>
       <form onSubmit={handleBooking} className="my-32 p-5 md:p-24 bg-[#F3F3F3] grid md:grid-cols-2 gap-6">
         <input
           className="input w-full text-lg py-4 px-6 rounded-lg"
@@ -76,8 +75,8 @@ const CheckOut = () => {
           className="input w-full text-lg py-4 px-6 rounded-lg"
           type="email"
           defaultValue={user?.email}
-          placeholder="Your Email"
           name="email"
+          readOnly
           required
         />
         <input

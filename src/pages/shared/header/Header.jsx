@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "./../../../assets/logo.svg";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { toast } from "react-toastify";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/bookings?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setBookings(data));
+  }, [user.email]);
 
   const navItems = (
     <>
@@ -20,9 +28,6 @@ const Header = () => {
       </li>
       <li>
         <Link to={"/blog"}>Blog</Link>
-      </li>
-      <li>
-        <Link to={"/contact"}>Contact</Link>
       </li>
     </>
   );
@@ -65,23 +70,31 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1 font-semibold text-lg text-[#444]">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        {!user ? (
+        {!user?.email ? (
           <Link to={"/login"}>
             <button className="btn btn-outline btn-success mr-3 font-semibold text-lg capitalize">
               Login
             </button>
           </Link>
         ) : (
-          <button
-            onClick={handleLogout}
-            className="btn btn-outline bg-[#FF3811] hover:bg-[#FFF] hover:border-[#FF3811] duration-500 capitalize text-[#FFF] hover:text-[#FF3811] font-semibold text-lg mr-3"
-          >
-            Log Out
-          </button>
+          <>
+            <Link to={"/bookings"}>
+              <div className="indicator me-8 flex">
+                <span className="indicator-item badge bg-[#FF3811] text-white">{bookings.length}</span>
+                <HiOutlineShoppingBag className="text-4xl" />
+              </div>
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="btn btn-outline bg-[#FF3811] hover:bg-[#FFF] hover:border-[#FF3811] duration-500 capitalize text-[#FFF] hover:text-[#FF3811] font-semibold text-lg mr-3"
+            >
+              Log Out
+            </button>
+          </>
         )}
-        <button className="btn btn-outline hover:bg-[#FF3811] hover:border-[#FF3811] duration-500 capitalize text-[#FF3811] font-semibold text-lg">
+        {/* <button className="btn btn-outline hover:bg-[#FF3811] hover:border-[#FF3811] duration-500 capitalize text-[#FF3811] font-semibold text-lg">
           Appointment
-        </button>
+        </button> */}
       </div>
     </div>
   );
