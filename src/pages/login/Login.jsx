@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "./../../assets/images/login/login.svg";
 import { useContext, useRef, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -11,6 +11,10 @@ const Login = () => {
   const { login, resetPassword } = useContext(AuthContext);
   const [error, setError] = useState("");
   const inputEmail = useRef();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,6 +28,7 @@ const Login = () => {
         setError("");
         form.reset();
         toast.success(`Welcome back, ${user?.displayName}! Your login was successful.`);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         error && setError("Login failed. Please check your email and password.");

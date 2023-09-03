@@ -2,10 +2,13 @@ import { useLoaderData } from "react-router-dom";
 import SubBanner from "../shared/subBanner/SubBanner";
 import banner from "./../../assets/images/banner/2.jpg";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const CheckOut = () => {
   const service = useLoaderData();
   const { _id, img, title, price } = service;
+  const { user } = useContext(AuthContext);
 
   const handleBooking = (e) => {
     e.preventDefault();
@@ -72,6 +75,7 @@ const CheckOut = () => {
         <input
           className="input w-full text-lg py-4 px-6 rounded-lg"
           type="email"
+          defaultValue={user?.email}
           placeholder="Your Email"
           name="email"
           required
