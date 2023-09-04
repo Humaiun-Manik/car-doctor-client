@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import SubBanner from "../shared/subBanner/SubBanner";
 import banner from "./../../assets/images/banner/3.jpg";
 import { AuthContext } from "../../contexts/AuthProvider";
 import BookingRow from "./BookingRow";
@@ -7,6 +6,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbArrowBackUp } from "react-icons/tb";
+import SubBanner from "../../components/shared/subBanner/SubBanner";
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);

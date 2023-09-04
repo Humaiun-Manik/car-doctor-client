@@ -5,10 +5,10 @@ import SignUp from "../../pages/signup/signUp";
 import Login from "../../pages/login/Login";
 import ServiceDetails from "../../pages/serviceDetails/ServiceDetails";
 import NotFound from "../../pages/notFound/NotFound";
-import CheckOut from "../../pages/checkOut/checkOut";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import Bookings from "../../pages/bookings/Bookings";
 import AllService from "../../pages/allService/AllService";
+import CheckOut from "../../pages/checkOut/CheckOut";
 
 const router = createBrowserRouter([
   {

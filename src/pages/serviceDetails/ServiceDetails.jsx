@@ -1,5 +1,4 @@
 import { Link, useLoaderData } from "react-router-dom";
-import SubBanner from "../shared/subBanner/SubBanner";
 import banner from "./../../assets/images/banner/1.jpg";
 import { FiPlayCircle } from "react-icons/fi";
 import { useContext } from "react";
@@ -7,6 +6,7 @@ import { ServiceContext } from "../../contexts/ServiceProvider";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsFileEarmarkBarGraph } from "react-icons/bs";
 import logo from "./../../assets/logo.svg";
+import SubBanner from "../../components/shared/subBanner/SubBanner";
 
 const ServiceDetails = () => {
   const service = useLoaderData();

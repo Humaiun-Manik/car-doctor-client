@@ -1,5 +1,6 @@
-import Services from "../shared/services/Services";
-import SubBanner from "../shared/subBanner/SubBanner";
+import Services from "../../components/shared/services/Services";
+import SubBanner from "../../components/shared/subBanner/SubBanner";
+
 import banner from "./../../assets/images/banner/4.jpg";
 
 const AllService = () => {

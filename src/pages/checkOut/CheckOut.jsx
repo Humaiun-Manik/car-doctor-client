@@ -1,9 +1,9 @@
 import { useLoaderData } from "react-router-dom";
-import SubBanner from "../shared/subBanner/SubBanner";
 import banner from "./../../assets/images/banner/2.jpg";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import SubBanner from "../../components/shared/subBanner/SubBanner";
 
 const CheckOut = () => {
   const service = useLoaderData();

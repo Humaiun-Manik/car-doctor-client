@@ -4,7 +4,7 @@ import { useContext, useRef, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
-import SocialMediaLogin from "../shared/socialMediaLogin/SocialMediaLogin";
+import SocialMediaLogin from "../../components/shared/socialMediaLogin/SocialMediaLogin";
 
 const Login = () => {
   const [type, setType] = useState("password");

@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
-import SocialMediaLogin from "../shared/socialMediaLogin/SocialMediaLogin";
+import SocialMediaLogin from "../../components/shared/socialMediaLogin/SocialMediaLogin";
 
 const SignUp = () => {
   const [type, setType] = useState("password");
