@@ -3,24 +3,25 @@ import logo from "./../../../assets/logo.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import { toast } from "react-toastify";
+import ActiveLink from "../../activeLink/ActiveLink";
 
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
 
   const navItems = (
     <>
-      <li>
-        <Link to={"/"}>Home</Link>
+      <li className="mx-4 hover:text-[#FF3811] duration-300">
+        <ActiveLink to={"/"}>Home</ActiveLink>
       </li>
-      <li>
-        <Link to={"/about"}>About</Link>
+      <li className="mx-4 hover:text-[#FF3811] duration-300">
+        <ActiveLink to={"/about"}>About</ActiveLink>
       </li>
-      <li>
-        <Link to={"/services"}>Services</Link>
+      <li className="mx-4 hover:text-[#FF3811] duration-300">
+        <ActiveLink to={"/services"}>Services</ActiveLink>
       </li>
       {user && (
-        <li>
-          <Link to={"/bookings"}>My Bookings</Link>
+        <li className="mx-4 hover:text-[#FF3811] duration-300">
+          <ActiveLink to={"/bookings"}>My Bookings</ActiveLink>
         </li>
       )}
     </>
@@ -51,7 +52,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-semibold text-lg text-[#444]"
+            className="menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-semibold text-lg text-[#444]"
           >
             {navItems}
           </ul>
@@ -61,7 +62,7 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold text-lg text-[#444]">{navItems}</ul>
+        <ul className="menu-horizontal px-1 font-semibold text-lg text-[#444]">{navItems}</ul>
       </div>
       <div className="navbar-end">
         {!user?.email ? (
