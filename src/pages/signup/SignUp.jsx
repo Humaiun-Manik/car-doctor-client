@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import login from "./../../assets/images/login/login.svg";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useContext, useState } from "react";
@@ -11,6 +11,7 @@ const SignUp = () => {
   const [type, setType] = useState("password");
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -43,6 +44,7 @@ const SignUp = () => {
           icon: "🚀",
         });
         updateUserData(user, name);
+        navigate("/");
       })
       .catch((error) => {
         setError(error.message);
